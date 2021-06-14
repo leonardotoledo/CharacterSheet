@@ -1,4 +1,6 @@
+from keep_alive import keep_alive
 import discord
+import os
 
 client = discord.Client()
 
@@ -11,8 +13,8 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$hello'):
+    if message.content.startswith('!hello'):
         await message.channel.send('Hello!')
 
-import os
+keep_alive()
 client.run(os.environ['TOKEN'])
